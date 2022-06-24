@@ -13,11 +13,11 @@ const Addpost = () => {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/posts/createpost", {
+      .post("https://intronus.herokuapp.com/posts/createpost", {
         Name: name,
         Field: field,
         Intro: intro,
-        Content: content
+        Content: content,
       })
       .then((resp) => {
         console.log(resp);

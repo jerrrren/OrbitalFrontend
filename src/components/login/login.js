@@ -23,18 +23,21 @@ const Login = () => {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/users/login", {
+      .post("https://intronus.herokuapp.com/users/login", {
         username: name,
         password: password,
       })
       .then((resp) => {
         console.log(resp.data);
         setId(resp.data.uid);
-        console.log(id)
-        userLogin({
-          refresh: resp.data.refresh,
-          access: resp.data.access,
-        },resp.data.uid);
+        console.log(id);
+        userLogin(
+          {
+            refresh: resp.data.refresh,
+            access: resp.data.access,
+          },
+          resp.data.uid
+        );
       })
       .catch((err) => {
         console.log(err);

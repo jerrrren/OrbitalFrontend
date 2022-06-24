@@ -12,9 +12,9 @@ const ChatPage = () => {
   const [receiver, setreceiver] = useState(null);
   const id = useAuth((state) => state.uid);
 
-  const URL = "http://localhost:8080/user_names/" + id;
-  const wsURL = "ws://localhost:8080/ws?id=" + id;
-  const messagesURL = "http://localhost:8080/messages/" + id;
+  const URL = "https://intronus.herokuapp.com/user_names/" + id;
+  const wsURL = "ws://intronus.herokuapp.com/ws?id=" + id;
+  const messagesURL = "https://intronus.herokuapp.com/messages/" + id;
   const [webServer, setWs] = useState();
 
   const submitForm = (values) => {

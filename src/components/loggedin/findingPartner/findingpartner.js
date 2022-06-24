@@ -21,7 +21,7 @@ const PairingPage = () => {
         //adds info about the indicators and try to find a matching if possible
         console.log("test")
         axios
-          .post("http://localhost:8080/pairing/fillIndicators", {
+          .post("https://intronus.herokuapp.com/pairing/fillIndicators", {
             Name: localStorage.getItem("username"),
             Commitment: parseInt(commitment),
             Location: location.toLowerCase(),
@@ -29,7 +29,7 @@ const PairingPage = () => {
           .then((resp) => {
             setSingle(false);
             axios
-              .post("http://localhost:8080/pairing/match", {
+              .post("https://intronus.herokuapp.com/pairing/match", {
                 Name: localStorage.getItem("username"),
               })
               .then((resp) => {
@@ -46,13 +46,19 @@ const PairingPage = () => {
     if (paired) {
         axios
           .all([
-            axios.post("http://localhost:8080/pairing/deleteSingleUser", {
-              Name: localStorage.getItem("username"),
-            }),
-            axios.post("http://localhost:8080/pairing/deleteSingleUser", {
-              Name: partner,
-            }),
-            axios.post("http://localhost:8080/pairing/addPairedUser", {
+            axios.post(
+              "https://intronus.herokuapp.com/pairing/deleteSingleUser",
+              {
+                Name: localStorage.getItem("username"),
+              }
+            ),
+            axios.post(
+              "https://intronus.herokuapp.com/pairing/deleteSingleUser",
+              {
+                Name: partner,
+              }
+            ),
+            axios.post("https://intronus.herokuapp.com/pairing/addPairedUser", {
               Name: localStorage.getItem("username"),
               Partner: partner,
             }),

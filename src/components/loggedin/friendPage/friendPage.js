@@ -14,14 +14,15 @@ const FriendPage = () => {
     const username = localStorage.getItem("username")
 
     useEffect(() => {
-        axios.post("/pairing/checkInfo", {
-            "Name": username
-        })
-            .then(resp => {
-                setSingle(resp.data.single)
-                setFilled(resp.data.filled)
-            })
-            .catch(err => console.log(err))
+        axios
+          .post("https://intronus.herokuapp.com/pairing/checkInfo", {
+            Name: username,
+          })
+          .then((resp) => {
+            setSingle(resp.data.single);
+            setFilled(resp.data.filled);
+          })
+          .catch((err) => console.log(err));
     }, [])
 
     return (

@@ -16,7 +16,7 @@ const Register = () => {
         e.preventDefault()
 
         axios
-          .post("http://localhost:8080/users/signup", {
+          .post("https://intronus.herokuapp.com/users/signup", {
             username: name,
             password: password,
           })

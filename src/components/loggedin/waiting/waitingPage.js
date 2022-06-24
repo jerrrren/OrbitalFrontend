@@ -11,26 +11,40 @@ const WaitingPage = () => {
 
     const submit = (e) => {
         e.preventDefault()
-        axios.post("/pairing/match", { "Name": localStorage.getItem("username") })
-            .then(resp => {
-                setWait(!resp.data.result)
-                setPartner(resp.data.message)
-            })
-            .catch(resp => console.log(resp))
+        axios
+          .post("https://intronus.herokuapp.com/pairing/match", {
+            Name: localStorage.getItem("username"),
+          })
+          .then((resp) => {
+            setWait(!resp.data.result);
+            setPartner(resp.data.message);
+          })
+          .catch((resp) => console.log(resp));
     }
 
     if (!wait) {
         //delete user fro sinlge user and add to paireduser table
-        axios.all([
-            axios.post("/pairing/deleteSingleUser", { "Name": localStorage.getItem("username") }),
-            axios.post("/pairing/deleteSingleUser", { "Name": partner }),
-            axios.post("/pairing/addPairedUser", {
-                "Name": localStorage.getItem("username"),
-                "Partner": partner
+        axios
+          .all([
+            axios.post(
+              "https://intronus.herokuapp.com/pairing/deleteSingleUser",
+              { Name: localStorage.getItem("username") }
+            ),
+            axios.post(
+              "https://intronus.herokuapp.com/pairing/deleteSingleUser",
+              { Name: partner }
+            ),
+            axios.post("https://intronus.herokuapp.com/pairing/addPairedUser", {
+              Name: localStorage.getItem("username"),
+              Partner: partner,
+            }),
+          ])
+          .then(
+            axios.spread((resp1, resp2, resp3) => {
+              console.log(resp1, resp2, resp3);
             })
-        ]).then(axios.spread((resp1, resp2, resp3) => {
-            console.log(resp1, resp2, resp3)
-        })).catch(err => console.log(err))
+          )
+          .catch((err) => console.log(err));
     }
 
     return (

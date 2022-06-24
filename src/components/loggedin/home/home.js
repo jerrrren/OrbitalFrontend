@@ -13,7 +13,7 @@ const LoggedInHome = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/posts/getPosts")
+      .get("https://intronus.herokuapp.com/posts/getPosts")
       .then((resp) => setPosts(resp.data))
       .catch((err) => console.log(err));
   }, []);
