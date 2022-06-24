@@ -36,7 +36,7 @@ const ChatPage = () => {
         timeStamp: timestamp,
       };
 
-      setmessages([...messages, message]);
+      setmessages((messages) => [message, ...messages]);
 
       webServer.send(JSON.stringify(message));
       console.log(message);
@@ -64,8 +64,8 @@ const ChatPage = () => {
     ws.onmessage = (e) => {
       const message = JSON.parse(e.data);
       console.log("receivedmessage");
-      console.log(message);
-      setmessages([...messages, message]);
+      console.log(messages);
+      setmessages((messages) => [message, ...messages]);
     };
 
     axios
@@ -76,7 +76,6 @@ const ChatPage = () => {
             setmessages([...messages, ...res.data]);
           }
         }
-
         console.log(res);
       })
       .catch((err) => console.log(err));
