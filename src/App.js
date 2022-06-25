@@ -76,6 +76,10 @@ function App() {
                 <PairingPage />
             }
           />
+          <Route path ="/post/content/:id" element={<Contents/>}/>
+
+          
+
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
