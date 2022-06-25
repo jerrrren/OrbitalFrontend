@@ -64,8 +64,12 @@ const ChatPage = () => {
     ws.onmessage = (e) => {
       const message = JSON.parse(e.data);
       console.log("receivedmessage");
-      console.log(messages);
       setmessages((messages) => [message, ...messages]);
+    };
+
+    this.ws.onclose = () => {
+      console.log("disconnected");
+      ws = new WebSocket(wsURL);  // automatically try to reconnect on connection loss
     };
 
     axios

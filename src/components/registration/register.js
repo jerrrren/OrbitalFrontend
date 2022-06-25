@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import "./register.css";
-import Nav from "../../components/navigation/navbar";
+import Nav from "../navigation/navbar";
 
 const Register = () => {
     const [name, setName] = useState("")
@@ -17,12 +17,19 @@ const Register = () => {
 
         axios
           .post("https://intronus.herokuapp.com/users/signup", {
-            username: name,
-            password: password,
+            Username: name,
+            Password: password,
+            User_type: "user",
           })
           .then((resp) => {
             console.log(resp);
             setRedirect(true);
+            axios
+              .post("https://intronus.herokuapp.com/pairing/registerAdd", {
+                Name: name,
+              })
+              .then((resp) => console.log(resp))
+              .catch((err) => console.log(err));
           })
           .catch((err) => {
             setErr(true);
