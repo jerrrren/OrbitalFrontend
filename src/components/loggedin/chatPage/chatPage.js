@@ -67,7 +67,7 @@ const ChatPage = () => {
       setmessages((messages) => [message, ...messages]);
     };
 
-    this.ws.onclose = () => {
+    ws.onclose = () => {
       console.log("disconnected");
       ws = new WebSocket(wsURL);  // automatically try to reconnect on connection loss
     };
