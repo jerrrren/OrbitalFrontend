@@ -42,7 +42,7 @@ const Login = () => {
       .catch((err) => {
         console.log(err);
         setErr(true);
-        setErrMsg(err.response.data.error);
+        setErrMsg(err.response.data.message);
       });
 
     localStorage.setItem("username", name);
