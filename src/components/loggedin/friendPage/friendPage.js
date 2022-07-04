@@ -5,6 +5,8 @@ import PairingPage from "../findingPartner/findingpartner";
 import axios from "axios";
 import WaitingPage from "../waiting/waitingPage";
 import ChatPage from "../chatPage/chatPage";
+import { url } from "../../../constants/url";
+
 
 //page to be loaded when friend button on navbar is chosen
 //will either load the findPartner page, waiting page or the chat page
@@ -14,7 +16,7 @@ const FriendPage = () => {
 
   useEffect(() => {
     axios
-      .post("https://intronus.herokuapp.com/pairing/ifPaired", {
+      .post(url.if_paired, {
         Name: username,
       })
       .then((resp) => {

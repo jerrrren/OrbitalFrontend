@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import Nav from "../../components/navigation/navbar";
 import useAuth from "../../hooks/useAuth";
+import { url } from "../../constants/url";
+
 
 import "./login.css";
 
@@ -23,26 +25,23 @@ const Login = () => {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("https://intronus.herokuapp.com/users/login", {
+      .post(url.login, {
         username: name,
         password: password,
       })
       .then((resp) => {
         console.log(resp.data);
         setId(resp.data.uid);
-        console.log(id);
-        userLogin(
-          {
-            refresh: resp.data.refresh,
-            access: resp.data.access,
-          },
-          resp.data.uid
-        );
+        console.log(id)
+        userLogin({
+          refresh: resp.data.refresh,
+          access: resp.data.access,
+        },resp.data.uid);
       })
       .catch((err) => {
         console.log(err);
         setErr(true);
-        setErrMsg(err.response.data.message);
+        setErrMsg(err.response.data.error);
       });
 
     localStorage.setItem("username", name);
