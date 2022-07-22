@@ -20,6 +20,15 @@ const Contents = () => {
         console.log(resp.data);
       })
       .catch((err) => console.log(err));
+
+    axios
+      .get(url.get_post + pid)
+      .then((resp) => {
+        console.log(resp.data);
+        setresp(resp.data);
+      })
+      .catch((err) => console.log(err));
+    
   };
 
   useEffect(() => {
