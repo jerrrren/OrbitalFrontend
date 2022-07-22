@@ -19,7 +19,7 @@ const PairingPage = () => {
 
   const [paired, setPaired] = useState(false);
   const [partner, setPartner] = useState("");
-  const [pairingSuccess, setPairingSuccess] = useState(true);
+  const [pairingSuccess, setPairingSuccess] = useState(false);
   const [year, setYear] = useState("")
   const [faculty, setFaculty] = useState("")
   const [sameFaculty, setSameFaculty] = useState(false)
