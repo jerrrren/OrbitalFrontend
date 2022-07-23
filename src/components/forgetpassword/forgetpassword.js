@@ -6,7 +6,7 @@ import Nav from "../../components/navigation/navbar";
 import useAuth from "../../hooks/useAuth";
 import { url } from "../../constants/url";
 
-import "./login.css";
+import "../login/login.css";
 
 const ForgetPassword = () => {
   const [username, setUsername] = useState("");
