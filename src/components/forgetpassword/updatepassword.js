@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useParams } from "react";
 import { Navigate } from "react-router-dom";
 import Nav from "../../components/navigation/navbar";
-import useAuth from "../../hooks/useAuth";
 import { url } from "../../constants/url";
 
 import "./login.css";
