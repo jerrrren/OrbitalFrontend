@@ -19,7 +19,7 @@ const UpdatePassword = () => {
   const submit = (e) => {
     e.preventDefault();
     if (password != confirmPassword) {
-      setErrMsg("password not the same as confirm password");
+      setErrMsg("Password not the same as Confirm Password");
       setErr(true);
       return;
     }
