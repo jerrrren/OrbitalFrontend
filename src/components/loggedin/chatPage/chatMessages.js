@@ -80,19 +80,20 @@ const ChatMessages = (props) => {
       (a, b) =>
         new Date(a.timeStamp).getTime() - new Date(b.timeStamp).getTime()
     )
+    .reverse()
     .map(mapToChat);
 
   return (
     <Flex
-      direction="column"
+      direction="column-reverse"
       height="77.6vh"
       width="83vw"
       alignItems="center"
       gap="1vh"
       overflowY="scroll"
     >
-      {messageboxes}
       <div ref={bottomRef} />
+      {messageboxes}
     </Flex>
   );
 };
