@@ -20,7 +20,7 @@ const ForgetPassword = () => {
 
     axios
       .get(url.forgetPassword, {
-        username: username,
+        Username: username,
       })
       .then((resp) => {
         console.log(resp.data);
