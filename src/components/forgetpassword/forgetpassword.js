@@ -17,10 +17,11 @@ const ForgetPassword = () => {
   const submit = (e) => {
     e.preventDefault();
 
+    console.log(username)
 
     axios
-      .get(url.forgetPassword, {
-        "Username": username,
+      .post(url.forgetPassword, {
+        Username: username,
       })
       .then((resp) => {
         console.log(resp.data);
