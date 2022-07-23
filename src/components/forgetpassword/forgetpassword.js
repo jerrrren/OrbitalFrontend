@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { useState, useParams } from "react";
+import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Nav from "../../components/navigation/navbar";
 import useAuth from "../../hooks/useAuth";

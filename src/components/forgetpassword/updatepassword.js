@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
-import { useState, useParams } from "react";
-import { Navigate } from "react-router-dom";
+import { useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import Nav from "../../components/navigation/navbar";
 import { url } from "../../constants/url";
 
