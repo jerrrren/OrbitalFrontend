@@ -1,54 +1,61 @@
 import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useParams } from "react";
 import { Navigate } from "react-router-dom";
 import Nav from "../../components/navigation/navbar";
 import useAuth from "../../hooks/useAuth";
 import { url } from "../../constants/url";
 
-
 import "./login.css";
 
-
-
-const Login = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [id, setId] = useState(0);
+const ForgetPassword = () => {
+  const [username, setUsername] = useState("");
   const [err, setErr] = useState(false);
   const [errMsg, setErrMsg] = useState("");
-  
-  
-  const userLogin = useAuth((state) => state.userLogin);
-
+  const [emailSent,setEmailSent] = useState(false)
 
   const submit = (e) => {
     e.preventDefault();
 
+
     axios
-      .post(url.login, {
-        username: name,
-        password: password,
+      .post(url.forgetPassword, {
+        username: username,
       })
       .then((resp) => {
         console.log(resp.data);
         setId(resp.data.uid);
-        console.log(id)
-        userLogin({
-          refresh: resp.data.refresh,
-          access: resp.data.access,
-        },resp.data.uid);
+        console.log(id);
+        userLogin(
+          {
+            refresh: resp.data.refresh,
+            access: resp.data.access,
+          },
+          resp.data.uid
+        );
       })
+      .then((resp)=> {
+        setEmailSent(true);
+      }
+      )
       .catch((err) => {
         console.log(err.response.data);
         setErr(true);
         setErrMsg(err.response.data.message);
       });
-
-    localStorage.setItem("username", name);
   };
 
 
+  if (emailSent) {
+    return (
+      <div className="login">
+        <Nav />
+        <h1 className="h3 mb-3 fw-normal">
+          A link has been sent to your email to reset you password
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div className="login">
@@ -62,29 +69,16 @@ const Login = () => {
       )}
       <main className="form-signin w-100 m-auto">
         <form onSubmit={(e) => submit(e)}>
-          <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
           <div className="form-floating">
             <input
               type="text"
               className="form-control"
-              placeholder="Name"
-              required
-              onChange={(e) => setName(e.target.value)}
-            />
-            <label htmlFor="floatingInput">Username</label>
-          </div>
-
-          <div className="form-floating">
-            <input
-              type="password"
-              className="form-control"
               placeholder="Password"
               required
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
             />
-            <label htmlFor="floatingPassword">Password</label>
+            <label htmlFor="floatingPassword">Username</label>
           </div>
-
           <button className="w-100 btn btn-lg btn-primary" type="submit">
             Submit
           </button>
@@ -94,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgetPassword;

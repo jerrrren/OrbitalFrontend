@@ -6,6 +6,11 @@ import Login from './components/login/login'
 import Logout from './components/login/logout'
 import LandingPage from "./components/landingpage/landingpage";
 import Register from './components/registration/register'
+import ForgetPassword from "./components/forgetpassword/forgetpassword";
+import UpdatePassword from "./components/forgetpassword/updatepassword";
+import PasswordResetRequestSend from "./components/forgetpassword/resetpassword";
+
+
 
 import LoggedInHome from './components/loggedin/home/home';
 import FriendPage from './components/loggedin/friendPage/friendPage';
@@ -19,6 +24,7 @@ import PairingPage from "./components/loggedin/findingPartner/findingpartner";
 import PublicRoute from './routes/PublicRoute'
 import PrivateRoute from "./routes/PrivateRoute";
 import VerifyEmail from './components/emailverification/checkEmail';
+import UpdatePassword from './components/forgetpassword/updatepassword';
 
 
 function App() {
@@ -81,8 +87,10 @@ function App() {
             element={<PrivateRoute children={<ChatPage />} />}
           />
 
-
-          <Route path = "/post/content/:pid" element={<PrivateRoute children={<Contents  />} />}/>
+          <Route
+            path="/post/content/:pid"
+            element={<PrivateRoute children={<Contents />} />}
+          />
 
           <Route
             path="/post/add"
@@ -95,6 +103,11 @@ function App() {
           <Route path="/pairing/fillDetails" element={<PairingPage />} />
 
           <Route path="/verifyemail/:token" element={<VerifyEmail />} />
+
+          <Route path="/updatepassword/:token" element={<UpdatePassword />} />
+
+          <Route path="/forgetpassword" element={<ForgetPassword />} />
+
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
