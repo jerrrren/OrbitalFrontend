@@ -19,7 +19,7 @@ const ForgetPassword = () => {
 
 
     axios
-      .post(url.forgetPassword, {
+      .get(url.forgetPassword, {
         username: username,
       })
       .then((resp) => {
