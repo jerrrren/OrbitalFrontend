@@ -6,9 +6,6 @@ import Login from './components/login/login'
 import Logout from './components/login/logout'
 import LandingPage from "./components/landingpage/landingpage";
 import Register from './components/registration/register'
-import ForgetPassword from "./components/forgetpassword/forgetpassword";
-import UpdatePassword from "./components/forgetpassword/updatepassword";
-import PasswordResetRequestSend from "./components/forgetpassword/resetpassword";
 
 
 
@@ -25,6 +22,7 @@ import PublicRoute from './routes/PublicRoute'
 import PrivateRoute from "./routes/PrivateRoute";
 import VerifyEmail from './components/emailverification/checkEmail';
 import UpdatePassword from './components/forgetpassword/updatepassword';
+import ForgetPassword from "./components/forgetpassword/forgetpassword";
 
 
 function App() {

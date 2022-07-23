@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import Nav from "../../components/navigation/navbar";
 import useAuth from "../../hooks/useAuth";
 import { url } from "../../constants/url";
-
+import { Link } from "@chakra-ui/react";
 
 import "./login.css";
 
@@ -89,6 +89,7 @@ const Login = () => {
             Submit
           </button>
         </form>
+        <Link href="/forgetpassword">Forgot Password?</Link>
       </main>
     </div>
   );

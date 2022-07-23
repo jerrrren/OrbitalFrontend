@@ -16,4 +16,6 @@ export const url = {
   verify_email: host + "/email/verifyemail",
   get_post: host + "/posts/getPosts/",
   update_participants: host + "/posts/update_participant/",
+  forgetPassword: host + "/email/sentResetEmail",
+  updatePassword: host + "/resetPassword/reset",
 };

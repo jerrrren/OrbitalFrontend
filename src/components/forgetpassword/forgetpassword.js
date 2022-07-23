@@ -24,15 +24,6 @@ const ForgetPassword = () => {
       })
       .then((resp) => {
         console.log(resp.data);
-        setId(resp.data.uid);
-        console.log(id);
-        userLogin(
-          {
-            refresh: resp.data.refresh,
-            access: resp.data.access,
-          },
-          resp.data.uid
-        );
       })
       .then((resp)=> {
         setEmailSent(true);
