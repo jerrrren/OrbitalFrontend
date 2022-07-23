@@ -19,8 +19,8 @@ const UpdatePassword = () => {
   const submit = (e) => {
     e.preventDefault();
     if (password != confirmPassword) {
-      setErr = true;
       setErrMsg("password not the same as confirm password");
+      setErr(true);
       return;
     }
     axios
