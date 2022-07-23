@@ -11,10 +11,6 @@ const ChatMessages = (props) => {
 
   var current_user = null;
   function mapToChat(message) {
-    var user = props.receiver.username;
-    if (current_user == message.senderId) {
-      user = null;
-    }
     current_user = message.senderId;
 
     if (message.senderId != props.receiver.uid) {
@@ -47,7 +43,6 @@ const ChatMessages = (props) => {
     return (
       <Box>
         <Text fontSize={"xs"} color="#585858">
-          {user}
         </Text>
         <Flex
           style={{
