@@ -34,9 +34,8 @@ const ChatMessages = (props) => {
                 padding: "1vw",
               }}
             >
-              <Text style={{ whiteSpace: "break-spaces" }}>
+              <Text style={{ whiteSpace: "break-spaces" ,direction:"ltr"}}>
                 {message.message}
-                <br />
               </Text>
             </Box>
           </Flex>
