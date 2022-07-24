@@ -11,6 +11,10 @@ const ChatMessages = (props) => {
 
   var current_user = null;
   function mapToChat(message) {
+    var user = props.receiver.username;
+    if (current_user == message.senderId) {
+      user = null;
+    }
     current_user = message.senderId;
 
     if (message.senderId != props.receiver.uid) {
@@ -43,6 +47,7 @@ const ChatMessages = (props) => {
     return (
       <Box>
         <Text fontSize={"xs"} color="#585858">
+          {user}
         </Text>
         <Flex
           style={{
@@ -75,20 +80,20 @@ const ChatMessages = (props) => {
       (a, b) =>
         new Date(a.timeStamp).getTime() - new Date(b.timeStamp).getTime()
     )
-    .reverse()
-    .map(mapToChat);
+    .map(mapToChat).reverse();
 
+  
   return (
     <Flex
-      direction="column-reverse"
+      direction="column"
       height="77.6vh"
       width="83vw"
       alignItems="center"
       gap="1vh"
       overflowY="scroll"
     >
-      <div ref={bottomRef} />
       {messageboxes}
+      <div ref={bottomRef} />
     </Flex>
   );
 };
