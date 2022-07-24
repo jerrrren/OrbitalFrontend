@@ -47,10 +47,16 @@ const Addpost = () => {
         height="94.2vh"
         alignItems="center"
       >
-        <Box background="#F0FFFF" padding="5" borderRadius="15px" width="50vw" height="85vh">
+        <Box
+          background="#F0FFFF"
+          padding="5"
+          borderRadius="15px"
+          width="50vw"
+          height="85vh"
+        >
           <form onSubmit={(e) => submit(e)}>
             <div className="form-group" style={{ margin: "15px" }}>
-              <label>Project title</label>
+              <label style={{ fontWeight: "bold" }}>Project title</label>
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"
@@ -60,7 +66,7 @@ const Addpost = () => {
               ></textarea>
             </div>
             <div className="form-group" style={{ margin: "15px" }}>
-              <label>Project Intro</label>
+              <label style={{ fontWeight: "bold" }}>Project Intro</label>
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"
@@ -70,7 +76,7 @@ const Addpost = () => {
               ></textarea>
             </div>
             <div className="form-group" style={{ margin: "15px" }}>
-              <label>Description</label>
+              <label style={{ fontWeight: "bold" }}>Description</label>
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"
@@ -80,7 +86,9 @@ const Addpost = () => {
               ></textarea>
             </div>
             <div className="form-group" style={{ margin: "15px" }}>
-              <label>Number Of Participants</label>
+              <label style={{ fontWeight: "bold" }}>
+                Number Of Participants
+              </label>
               <input
                 type="number"
                 className="form-control"
@@ -90,8 +98,10 @@ const Addpost = () => {
                 placeholder="The number of participants required for the project"
               ></input>
             </div>
-            <Flex justifyContent="center" >
-              <Button type="submit" width="46.5vw" marginTop="3vh">Submit</Button>
+            <Flex justifyContent="center">
+              <Button type="submit" width="46.5vw" marginTop="3vh">
+                Submit
+              </Button>
             </Flex>
           </form>
         </Box>
