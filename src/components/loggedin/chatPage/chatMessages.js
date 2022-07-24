@@ -11,7 +11,6 @@ const ChatMessages = (props) => {
 
   var current_user = null;
   function mapToChat(message) {
-    current_user = message.senderId;
     var user = props.receiver.username;
     if (current_user == message.senderId) {
       user = null;
@@ -83,7 +82,6 @@ const ChatMessages = (props) => {
     )
     .map(mapToChat)
     .reverse();
-;
 
   return (
     <Flex
