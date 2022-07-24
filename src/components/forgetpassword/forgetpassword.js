@@ -40,7 +40,7 @@ const ForgetPassword = () => {
 
   if (emailSent) {
     return (
-      <div className="login">
+      <div className="login" style={{ height: "100vh" }}>
         <Nav />
         <h1 className="h3 mb-3 fw-normal">
           A link has been sent to your email to reset you password

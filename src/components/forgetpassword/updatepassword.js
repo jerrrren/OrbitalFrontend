@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import Nav from "../../components/navigation/navbar";
 import { url } from "../../constants/url";
 
@@ -40,17 +40,17 @@ const UpdatePassword = () => {
 
   if (passwordReseted) {
     return (
-      <div className="login">
+      <div className="login" style={{ height: "100vh" }}>
         <Nav />
         <h1 className="h3 mb-3 fw-normal">
-            Your password has been reset, please login again    
+          Your password has been reset, please login again
         </h1>
       </div>
     );
   }
 
   return (
-    <div className="login">
+    <div className="login" style={{ height: "100vh" }}>
       <Nav />
       {err ? (
         <div className="alert alert-danger" role="alert">
