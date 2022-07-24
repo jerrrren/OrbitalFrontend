@@ -11,6 +11,7 @@ const ChatMessages = (props) => {
 
   var current_user = null;
   function mapToChat(message) {
+    current_user = message.senderId;
     var user = props.receiver.username;
     if (current_user == message.senderId) {
       user = null;
@@ -80,20 +81,21 @@ const ChatMessages = (props) => {
       (a, b) =>
         new Date(a.timeStamp).getTime() - new Date(b.timeStamp).getTime()
     )
-    .map(mapToChat).reverse();
+    .map(mapToChat)
+    .reverse();
+;
 
-  
   return (
     <Flex
-      direction="column"
+      direction="column-reverse"
       height="77.6vh"
       width="83vw"
       alignItems="center"
       gap="1vh"
       overflowY="scroll"
     >
-      {messageboxes}
       <div ref={bottomRef} />
+      {messageboxes}
     </Flex>
   );
 };
