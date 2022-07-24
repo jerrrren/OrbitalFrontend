@@ -19,17 +19,7 @@ const Contents = () => {
       .then((resp) => {
         console.log(resp.data);
       })
-      .then(
-        ()=>{
-        axios.get(url.get_post + pid).then((resp) => {
-          console.log(resp.data);
-          setresp(resp.data);
-        }).catch((err) => console.log(err))
-      }
-      );
-
-    
-    
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -58,13 +48,13 @@ const Contents = () => {
     <div>
       <LoggedinNavbar />
       <Flex
+        minWidth="40vw"
         background="orange"
-        width="100%"
         height="94.2vh"
         justifyContent="center"
       >
         <Box
-          width="40vw"
+          minWidth="40vw"
           background="white"
           margin="5"
           borderRadius="15px"
@@ -85,7 +75,11 @@ const Contents = () => {
               </Link>
             </Flex>
             <Text
-              style={{ fontFamily: "Dosis", fontWeight: "400" }}
+              style={{
+                fontFamily: "Dosis",
+                fontWeight: "400",
+                whiteSpace: "break-spaces",
+              }}
               padding="1"
               fontSize={"2xl"}
             >
@@ -103,9 +97,13 @@ const Contents = () => {
             {participants}
           </Flex>
 
-          {res && !(res.UID == id) && res.Participants && !res.Participants.includes(id) && res.Participants.length < res.NumParticipants &&(
-            <Button onClick={add_participant}>Join Project</Button>
-          )}
+          {res &&
+            !(res.UID == id) &&
+            res.Participants &&
+            !res.Participants.includes(id) &&
+            res.Participants.length < res.NumParticipants && (
+              <Button onClick={add_participant}>Join Project</Button>
+            )}
         </Box>
       </Flex>
     </div>
