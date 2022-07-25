@@ -86,7 +86,7 @@ const PairingPage = () => {
           setPaired(resp.data.result);
           setPartner(resp.data.message);
           setPairingSuccess(resp.data.result);
-          if (!pairingSuccess) {
+          if (!resp.data.result) {
             setErrMsg("Not enough users to pair you, please try again later")
           }
         })
