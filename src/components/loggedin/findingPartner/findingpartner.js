@@ -60,7 +60,7 @@ const PairingPage = () => {
       return false
     }
 
-    if (!FACULTY.includes(faculty)) {
+    if (!FACULTY.includes(faculty.toLowerCase())) {
       setPairingSuccess(false)
       setErrMsg("Please input a valid faculty")
       return false
