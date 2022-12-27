@@ -1,7 +1,7 @@
-const host = "https://intronus.herokuapp.com";
+const host = "http://orbitalbackend-dev22.ap-southeast-1.elasticbeanstalk.com";
 
 export const url = {
-  get_ws: "wss://intronus.herokuapp.com/ws?id=",
+  get_ws: "wss://orbitalbackend-dev22.ap-southeast-1.elasticbeanstalk.com/ws?id=",
   get_username: host + "/user_names/",
   get_messages: host + "/messages/",
   get_posts: host + "/posts/getPosts",
